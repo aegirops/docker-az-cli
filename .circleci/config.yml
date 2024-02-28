@@ -50,10 +50,6 @@ jobs:
             echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
             docker push aegirops/az-cli:latest
             docker push aegirops/az-cli:${CIRCLE_TAG}
-            docker push aegirops/az-cli:latest-node14
-            docker push aegirops/az-cli:${CIRCLE_TAG}-node14
-            docker push aegirops/az-cli:latest-node16
-            docker push aegirops/az-cli:${CIRCLE_TAG}-node16
             docker push aegirops/az-cli:latest-node18
             docker push aegirops/az-cli:${CIRCLE_TAG}-node18
 
