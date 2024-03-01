@@ -38,8 +38,9 @@ RUN echo \
 RUN apt-get update
 RUN apt-get install -y docker-ce-cli docker-compose-plugin
 
-# Install azure cli
+# Install azure cli and kubelogin plugin
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+RUN az aks install-cli
 
 # Install postgresql
 RUN wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
