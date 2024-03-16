@@ -22,6 +22,7 @@ RUN apt-get install -y \
     git \
     gettext-base \
     jq \
+    yq \
     net-tools \
     python3 \
     python3-pip \
