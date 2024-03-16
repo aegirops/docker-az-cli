@@ -12,6 +12,10 @@ RUN apt-get install -y \
 RUN echo "deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable" >> /etc/apt/sources.list \
     && curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
+# Add helm repository
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" >> /etc/apt/sources.list \
+    && curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
+
 # Install dependencies
 RUN apt-get update -y
 RUN apt-get install -y \
@@ -26,7 +30,8 @@ RUN apt-get install -y \
     net-tools \
     python3 \
     python3-pip \
-    python3-magic
+    python3-magic \
+    helm
 
 # Install docker
 RUN install -m 0755 -d /etc/apt/keyrings
